@@ -24,6 +24,7 @@ public class ASSULab3 implements NeuralNetListener {
     private Integer numberOfTrainingPatterns = 3;
     private Double learningRate = 0.8;
     private Double momentum = 0.3;
+    private Integer numberOfNeuronsInHiddenLayer = 5;
     private Integer numberOfTestCycles = 10;
 
     private ASSULab3() {}
@@ -189,7 +190,7 @@ public class ASSULab3 implements NeuralNetListener {
         SigmoidLayer hidden = new SigmoidLayer();
         SigmoidLayer output = new SigmoidLayer();
         input.setRows(3);
-        hidden.setRows(5);
+        hidden.setRows(numberOfNeuronsInHiddenLayer);
         output.setRows(2);
         input.setLayerName("L.input");
         hidden.setLayerName("L.hidden");
@@ -222,7 +223,7 @@ public class ASSULab3 implements NeuralNetListener {
         SigmoidLayer hidden = new SigmoidLayer();
         SigmoidLayer output = new SigmoidLayer();
         input.setRows(2);
-        hidden.setRows(5);
+        hidden.setRows(numberOfNeuronsInHiddenLayer);
         output.setRows(3);
         input.setLayerName("L2.input");
         hidden.setLayerName("L2.hidden");
