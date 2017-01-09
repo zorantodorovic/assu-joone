@@ -1,5 +1,3 @@
-
-
 /**
  * Created by zorantodorovic on 09/01/2017.
  */
@@ -12,8 +10,7 @@ import org.joone.io.FileOutputSynapse;
 import org.joone.io.MemoryOutputSynapse;
 import org.joone.net.NeuralNet;
 
-
-public class XOR implements NeuralNetListener {
+public class ASSULab3 implements NeuralNetListener {
     private NeuralNet nnet1 = null;
     private NeuralNet nnet2 = null;
     private FileInputSynapse firstInputSynapse;
@@ -23,39 +20,44 @@ public class XOR implements NeuralNetListener {
     private MemoryOutputSynapse firstOutputSynapse;
     private MemoryOutputSynapse secondOutputSynapse;
 
-    public XOR() {
-    }
+    private Integer numberOfCycles = 10000;
+    private Integer numberOfTrainingPatterns = 3;
+    private Double learningRate = 0.8;
+    private Double momentum = 0.3;
+    private Integer numberOfTestCycles = 10;
+
+    private ASSULab3() {}
 
     public static void main(String[] args) {
-        XOR xor = new XOR();
-        xor.initFirstNN();
+        ASSULab3 assu = new ASSULab3();
+        assu.initFirstNN();
         System.out.println("First NN initialized");
-        xor.trainFirstNN();
+        assu.trainFirstNN();
         System.out.println("First NN trained");
-//        xor.interrogateFirstNN();
-//        System.out.println("First NN interrogated");
+        assu.interrogateFirstNN();
+        System.out.println("First NN interrogated");
 
-        xor.initSecondNN();
+        assu.initSecondNN();
         System.out.println("Second NN initialized");
-        xor.trainSecondNN();
+        assu.trainSecondNN();
         System.out.println("Second NN trained");
-//        xor.interrogateSecondNN();
-//        System.out.println("Second NN interrogated");
+        assu.interrogateSecondNN();
+        System.out.println("Second NN interrogated");
 
-        xor.testFirstNN();
+        assu.testFirstNN();
     }
 
 
-    public void trainFirstNN() {
-        this.firstInputSynapse.setFileName("in_first.txt");
+    private void trainFirstNN() {
+        this.firstInputSynapse.setFileName("inputData.txt");
         this.firstInputSynapse.setAdvancedColumnSelector("1,2,3");
-        this.desiredFirstOutputSynapse.setFileName("in_first.txt");
+        this.desiredFirstOutputSynapse.setFileName("inputData.txt");
         this.desiredFirstOutputSynapse.setAdvancedColumnSelector("4,5");
         Monitor monitor = this.nnet1.getMonitor();
-        monitor.setLearningRate(0.8D);
-        monitor.setMomentum(0.3D);
-        monitor.setTrainingPatterns(3);
-        monitor.setTotCicles(10000);
+        monitor.setLearningRate(learningRate);
+        monitor.setMomentum(momentum);
+        monitor.setTrainingPatterns(numberOfTrainingPatterns);
+        monitor.setTotCicles(numberOfCycles);
         monitor.setLearning(true);
         this.nnet1.addNeuralNetListener(this);
         this.nnet1.start();
@@ -65,18 +67,16 @@ public class XOR implements NeuralNetListener {
 //        this.interrogateFirstNN();
     }
 
-    public void trainSecondNN() {
-//        this.inputSynapse.setInputArray(this.inputArray);
-        this.secondInputSynapse.setFileName("in_first.txt");
+    private void trainSecondNN() {
+        this.secondInputSynapse.setFileName("inputData.txt");
         this.secondInputSynapse.setAdvancedColumnSelector("4,5");
-//        this.desiredOutputSynapse.setInputArray(this.desiredOutputArray);
-        this.desiredSecondOutputSynapse.setFileName("in_first.txt");
+        this.desiredSecondOutputSynapse.setFileName("inputData.txt");
         this.desiredSecondOutputSynapse.setAdvancedColumnSelector("1,2,3");
         Monitor monitor = this.nnet2.getMonitor();
-        monitor.setLearningRate(0.8D);
-        monitor.setMomentum(0.3D);
-        monitor.setTrainingPatterns(3);
-        monitor.setTotCicles(10000);
+        monitor.setLearningRate(learningRate);
+        monitor.setMomentum(momentum);
+        monitor.setTrainingPatterns(numberOfTrainingPatterns);
+        monitor.setTotCicles(numberOfCycles);
         monitor.setLearning(true);
         this.nnet2.addNeuralNetListener(this);
         this.nnet2.start();
@@ -89,13 +89,13 @@ public class XOR implements NeuralNetListener {
 
     private void interrogateFirstNN() {
         Monitor monitor = this.nnet1.getMonitor();
-        monitor.setTrainingPatterns(3);
+        monitor.setTrainingPatterns(numberOfTrainingPatterns);
         monitor.setTotCicles(1);
         monitor.setLearning(false);
 
 
         FileOutputSynapse output = new FileOutputSynapse();
-        output.setFileName("test_out_first.txt");
+        output.setFileName("interrogation_out_firstNN.txt");
         if(this.nnet1 != null) {
             this.nnet1.addOutputSynapse(output);
             System.out.println(this.nnet1.check());
@@ -107,11 +107,11 @@ public class XOR implements NeuralNetListener {
 
     private void interrogateSecondNN() {
         Monitor monitor = this.nnet2.getMonitor();
-        monitor.setTrainingPatterns(3);
+        monitor.setTrainingPatterns(numberOfTrainingPatterns);
         monitor.setTotCicles(1);
         monitor.setLearning(false);
         FileOutputSynapse output = new FileOutputSynapse();
-        output.setFileName("out_second.txt");
+        output.setFileName("interrogation_out_secondNN.txt");
         if(this.nnet2 != null) {
             this.nnet2.addOutputSynapse(output);
             System.out.println(this.nnet2.check());
@@ -123,7 +123,7 @@ public class XOR implements NeuralNetListener {
 
     private void testFirstNN() {
         String fileName;
-        for (int i = 0; i < 1; i++) {
+        for (int i = 0; i < numberOfTestCycles; i++) {
             if (i == 0) {
                 fileName = "test_in_first.txt";
             } else {
@@ -139,7 +139,7 @@ public class XOR implements NeuralNetListener {
             fileInputSynapse.setAdvancedColumnSelector("1,2,3");
 
             Monitor monitor = this.nnet1.getMonitor();
-            monitor.setTrainingPatterns(3);
+            monitor.setTrainingPatterns(numberOfTrainingPatterns);
             monitor.setTotCicles(1);
             monitor.setLearning(false);
 
@@ -167,7 +167,7 @@ public class XOR implements NeuralNetListener {
         fileInputSynapse2.setAdvancedColumnSelector("1,2");
 
         Monitor monitor2 = this.nnet2.getMonitor();
-        monitor2.setTrainingPatterns(3);
+        monitor2.setTrainingPatterns(numberOfTrainingPatterns);
         monitor2.setTotCicles(1);
         monitor2.setLearning(false);
 
@@ -184,7 +184,7 @@ public class XOR implements NeuralNetListener {
     }
 
 
-    protected void initFirstNN() {
+    private void initFirstNN() {
         LinearLayer input = new LinearLayer();
         SigmoidLayer hidden = new SigmoidLayer();
         SigmoidLayer output = new SigmoidLayer();
@@ -206,7 +206,6 @@ public class XOR implements NeuralNetListener {
         input.addInputSynapse(this.firstInputSynapse);
         this.firstOutputSynapse = new MemoryOutputSynapse();
         output.addOutputSynapse(this.firstOutputSynapse);
-//        this.desiredOutputSynapse = new MemoryInputSynapse();
         TeachingSynapse trainer = new TeachingSynapse();
         this.desiredFirstOutputSynapse = new FileInputSynapse();
         trainer.setDesired(this.desiredFirstOutputSynapse);
@@ -218,7 +217,7 @@ public class XOR implements NeuralNetListener {
         output.addOutputSynapse(trainer);
     }
 
-    protected void initSecondNN(){
+    private void initSecondNN(){
         LinearLayer input = new LinearLayer();
         SigmoidLayer hidden = new SigmoidLayer();
         SigmoidLayer output = new SigmoidLayer();
@@ -240,7 +239,6 @@ public class XOR implements NeuralNetListener {
         input.addInputSynapse(this.secondInputSynapse);
         this.secondOutputSynapse = new MemoryOutputSynapse();
         output.addOutputSynapse(this.secondOutputSynapse);
-//        this.desiredOutputSynapse = new MemoryInputSynapse();
         TeachingSynapse trainer = new TeachingSynapse();
         this.desiredSecondOutputSynapse = new FileInputSynapse();
         trainer.setDesired(this.desiredSecondOutputSynapse);

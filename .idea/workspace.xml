@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="joone-lab:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="a1e9eb45-2417-45ce-b71f-a522e4947af7" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -16,16 +21,16 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="XOR.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/XOR.java">
+      <file leaf-file-name="ASSULab3.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/ASSULab3.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" column="47" lean-forward="true" selection-start-line="15" selection-start-column="47" selection-end-line="15" selection-end-column="47" />
+            <state relative-caret-position="193">
+              <caret line="48" column="0" lean-forward="true" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
               <folding>
-                <element signature="e#0#9904#0" expanded="true" />
+                <element signature="n#!!doc" expanded="true" />
                 <element signature="imports" expanded="true" />
-                <element signature="e#9780#9781#0" expanded="true" />
-                <element signature="e#9826#9827#0" expanded="true" />
+                <element signature="e#9969#9970#0" expanded="true" />
+                <element signature="e#10015#10016#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -41,6 +46,16 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="interrogation_out_firstNN.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/interrogation_out_firstNN.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="test_out_first.txt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test_out_first.txt">
           <provider selected="true" editor-type-id="text-editor">
@@ -51,11 +66,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="in_first.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/in_first.txt">
+      <file leaf-file-name="inputData.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/inputData.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="45">
-              <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+              <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -65,7 +80,7 @@
         <entry file="file://$PROJECT_DIR$/test_out_middle.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="45">
-              <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+              <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -100,6 +115,11 @@
       <find>desired</find>
       <find>start</find>
       <find>test_out_se</find>
+      <find>fileout</find>
+      <find>in_first</find>
+      <find>out_first</find>
+      <find>out_Secon</find>
+      <find>numberOfTestCycles</find>
     </findStrings>
   </component>
   <component name="GradleLocalSettings">
@@ -114,11 +134,13 @@
         <option value="$PROJECT_DIR$/out2.txt" />
         <option value="$PROJECT_DIR$/out_second.txt" />
         <option value="$PROJECT_DIR$/in_first.txt" />
-        <option value="$PROJECT_DIR$/out_first.txt" />
-        <option value="$PROJECT_DIR$/test_out_first.txt" />
         <option value="$PROJECT_DIR$/test_in_first.txt" />
-        <option value="$PROJECT_DIR$/test_out_middle.txt" />
         <option value="$PROJECT_DIR$/src/XOR.java" />
+        <option value="$PROJECT_DIR$/test_out_first.txt" />
+        <option value="$PROJECT_DIR$/test_out_middle.txt" />
+        <option value="$PROJECT_DIR$/out_first.txt" />
+        <option value="$PROJECT_DIR$/interrogation_out_firstNN.txt" />
+        <option value="$PROJECT_DIR$/src/ASSULab3.java" />
       </list>
     </option>
   </component>
@@ -194,14 +216,14 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="nodejs_interpreter_path" value="/usr/local/bin/node" />
     <property name="js.eslint.eslintPackage" value="" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
   </component>
-  <component name="RunManager" selected="Application.Unnamed">
+  <component name="RunManager" selected="Application.ASSU">
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
       <module name="" />
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
@@ -575,11 +597,11 @@
     <configuration default="true" type="osgi.bnd.run" factoryName="Test Launcher (JUnit)">
       <method />
     </configuration>
-    <configuration default="false" name="Unnamed" type="Application" factoryName="Application">
+    <configuration default="false" name="ASSU" type="Application" factoryName="Application">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" value="XOR" />
+      <option name="MAIN_CLASS_NAME" value="ASSULab3" />
       <option name="VM_PARAMETERS" value="" />
-      <option name="PROGRAM_PARAMETERS" value="xor.txt xor_out.txt" />
+      <option name="PROGRAM_PARAMETERS" value="" />
       <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
@@ -591,7 +613,7 @@
       <method />
     </configuration>
     <list size="1">
-      <item index="0" class="java.lang.String" itemvalue="Application.Unnamed" />
+      <item index="0" class="java.lang.String" itemvalue="Application.ASSU" />
     </list>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
@@ -604,15 +626,15 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1483969725946</updated>
-      <workItem from="1483969729473" duration="16091000" />
+      <workItem from="1483969729473" duration="18612000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16091000" />
+    <option name="totallyTimeSpent" value="18612000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="833" extended-state="6" />
+    <frame x="0" y="23" width="1440" height="833" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -735,15 +757,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/out_first.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/out_second.txt">
+    <entry file="file://$PROJECT_DIR$/interrogation_out_secondNN.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
@@ -759,7 +773,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test_out_middle.txt">
+    <entry file="file://$PROJECT_DIR$/inputData.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
@@ -767,10 +781,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/in_first.txt">
+    <entry file="file://$PROJECT_DIR$/interrogation_out_firstNN.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
-          <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -783,15 +797,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/XOR.java">
+    <entry file="file://$PROJECT_DIR$/test_out_middle.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="47" lean-forward="true" selection-start-line="15" selection-start-column="47" selection-end-line="15" selection-end-column="47" />
+        <state relative-caret-position="45">
+          <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ASSULab3.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="48" column="0" lean-forward="true" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
           <folding>
-            <element signature="e#0#9904#0" expanded="true" />
+            <element signature="n#!!doc" expanded="true" />
             <element signature="imports" expanded="true" />
-            <element signature="e#9780#9781#0" expanded="true" />
-            <element signature="e#9826#9827#0" expanded="true" />
+            <element signature="e#9969#9970#0" expanded="true" />
+            <element signature="e#10015#10016#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -802,10 +824,12 @@
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
           <artifact-editor />
+          <last-edited>joone-lab:jar</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.5" />
               </list>
             </option>
           </splitter-proportions>
