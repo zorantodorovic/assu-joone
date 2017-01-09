@@ -32,15 +32,15 @@ public class XOR implements NeuralNetListener {
         System.out.println("First NN initialized");
         xor.trainFirstNN();
         System.out.println("First NN trained");
-        xor.interrogateFirstNN();
-        System.out.println("First NN interrogated");
+//        xor.interrogateFirstNN();
+//        System.out.println("First NN interrogated");
 
         xor.initSecondNN();
         System.out.println("Second NN initialized");
         xor.trainSecondNN();
         System.out.println("Second NN trained");
-        xor.interrogateSecondNN();
-        System.out.println("Second NN interrogated");
+//        xor.interrogateSecondNN();
+//        System.out.println("Second NN interrogated");
 
         xor.testFirstNN();
     }
@@ -122,33 +122,67 @@ public class XOR implements NeuralNetListener {
     }
 
     private void testFirstNN() {
-        Layer input = this.nnet1.getInputLayer();
-        input.removeAllInputs();
-        input.setLayerName("L.input");
-        input.setRows(3);
+        String fileName;
+        for (int i = 0; i < 1; i++) {
+            if (i == 0) {
+                fileName = "test_in_first.txt";
+            } else {
+                fileName = "test_out_middle.txt";
+            }
+            Layer input = this.nnet1.getInputLayer();
+            input.removeAllInputs();
+            input.setLayerName("L.input");
+            input.setRows(3);
 
-        FileInputSynapse fileInputSynapse = new FileInputSynapse();
-        fileInputSynapse.setFileName("test_in_first.txt");
-        fileInputSynapse.setAdvancedColumnSelector("1,2,3");
+            FileInputSynapse fileInputSynapse = new FileInputSynapse();
+            fileInputSynapse.setFileName(fileName);
+            fileInputSynapse.setAdvancedColumnSelector("1,2,3");
 
-        Monitor monitor = this.nnet1.getMonitor();
-        monitor.setTrainingPatterns(3);
-        monitor.setTotCicles(1);
-        monitor.setLearning(false);
+            Monitor monitor = this.nnet1.getMonitor();
+            monitor.setTrainingPatterns(3);
+            monitor.setTotCicles(1);
+            monitor.setLearning(false);
 
-
-        FileOutputSynapse fileOutputSynapse = new FileOutputSynapse();
-        fileOutputSynapse.setFileName("test_out_first.txt");
-        if(this.nnet1 != null) {
-            this.nnet1.addInputSynapse(fileInputSynapse);
-            this.nnet1.addOutputSynapse(fileOutputSynapse);
-            System.out.println(this.nnet1.check());
-            this.nnet1.start();
-            monitor.Go();
-            this.nnet1.join();
+            FileOutputSynapse fileOutputSynapse = new FileOutputSynapse();
+            fileOutputSynapse.setFileName("test_out_first.txt");
+            if (this.nnet1 != null) {
+                this.nnet1.addInputSynapse(fileInputSynapse);
+                this.nnet1.addOutputSynapse(fileOutputSynapse);
+                System.out.println(this.nnet1.check());
+                this.nnet1.start();
+                monitor.Go();
+                this.nnet1.join();
+            }
+            testSecondNN();
         }
-
     }
+
+    private void testSecondNN() {
+        Layer input2 = this.nnet2.getInputLayer();
+        input2.removeAllInputs();
+        input2.setLayerName("L2.input");
+        input2.setRows(2);
+        FileInputSynapse fileInputSynapse2 = new FileInputSynapse();
+        fileInputSynapse2.setFileName("test_out_first.txt");
+        fileInputSynapse2.setAdvancedColumnSelector("1,2");
+
+        Monitor monitor2 = this.nnet2.getMonitor();
+        monitor2.setTrainingPatterns(3);
+        monitor2.setTotCicles(1);
+        monitor2.setLearning(false);
+
+        FileOutputSynapse fileOutputSynapse2 = new FileOutputSynapse();
+        fileOutputSynapse2.setFileName("test_out_middle.txt");
+        if (this.nnet2 != null) {
+            this.nnet2.addInputSynapse(fileInputSynapse2);
+            this.nnet2.addOutputSynapse(fileOutputSynapse2);
+            System.out.println(this.nnet2.check());
+            this.nnet2.start();
+            monitor2.Go();
+            this.nnet2.join();
+        }
+    }
+
 
     protected void initFirstNN() {
         LinearLayer input = new LinearLayer();
