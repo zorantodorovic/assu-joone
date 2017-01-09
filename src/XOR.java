@@ -41,6 +41,8 @@ public class XOR implements NeuralNetListener {
         System.out.println("Second NN trained");
         xor.interrogateSecondNN();
         System.out.println("Second NN interrogated");
+
+        xor.testFirstNN();
     }
 
 
@@ -90,8 +92,10 @@ public class XOR implements NeuralNetListener {
         monitor.setTrainingPatterns(3);
         monitor.setTotCicles(1);
         monitor.setLearning(false);
+
+
         FileOutputSynapse output = new FileOutputSynapse();
-        output.setFileName("out_first.txt");
+        output.setFileName("test_out_first.txt");
         if(this.nnet1 != null) {
             this.nnet1.addOutputSynapse(output);
             System.out.println(this.nnet1.check());
@@ -115,6 +119,35 @@ public class XOR implements NeuralNetListener {
             monitor.Go();
             this.nnet2.join();
         }
+    }
+
+    private void testFirstNN() {
+        Layer input = this.nnet1.getInputLayer();
+        input.removeAllInputs();
+        input.setLayerName("L.input");
+        input.setRows(3);
+
+        FileInputSynapse fileInputSynapse = new FileInputSynapse();
+        fileInputSynapse.setFileName("test_in_first.txt");
+        fileInputSynapse.setAdvancedColumnSelector("1,2,3");
+
+        Monitor monitor = this.nnet1.getMonitor();
+        monitor.setTrainingPatterns(3);
+        monitor.setTotCicles(1);
+        monitor.setLearning(false);
+
+
+        FileOutputSynapse fileOutputSynapse = new FileOutputSynapse();
+        fileOutputSynapse.setFileName("test_out_first.txt");
+        if(this.nnet1 != null) {
+            this.nnet1.addInputSynapse(fileInputSynapse);
+            this.nnet1.addOutputSynapse(fileOutputSynapse);
+            System.out.println(this.nnet1.check());
+            this.nnet1.start();
+            monitor.Go();
+            this.nnet1.join();
+        }
+
     }
 
     protected void initFirstNN() {
@@ -184,6 +217,7 @@ public class XOR implements NeuralNetListener {
         this.nnet2.setTeacher(trainer);
         output.addOutputSynapse(trainer);
     }
+
 
     public void cicleTerminated(NeuralNetEvent e) {
     }
