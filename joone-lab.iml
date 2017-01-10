@@ -10,7 +10,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/Downloads/joone-engine-20050130.jar!/" />
+          <root url="jar://$MODULE_DIR$/joone-engine-20050130.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
